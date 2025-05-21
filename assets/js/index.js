@@ -1,30 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Get all the nav links
-  const navLinks = document.querySelectorAll('.menu nav ul li a');
+// document.addEventListener("DOMContentLoaded", function () {
+//   const tabLinks = document.querySelectorAll('.nav-tabs a');
+//   const tabPanes = document.querySelectorAll('.tab-pane');
 
-  // Get the current URL path
-  const currentPath = window.location.pathname;
+//   tabLinks.forEach(link => {
+//     link.addEventListener('click', function (e) {
+//       e.preventDefault();
 
-  // Iterate over the links and add the active class to the matching link
-  navLinks.forEach(link => {
-    // Remove 'active' class from all links
-    link.classList.remove('active');
+//       // Remove 'active' class from all tabs
+//       tabLinks.forEach(l => l.parentElement.classList.remove('active'));
+//       // Remove 'active in show fade' classes from all tab panes
+//       tabPanes.forEach(pane => {
+//         pane.classList.remove('active', 'in', 'show');
+//       });
 
-    // Check if the link's href matches the current path
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active');
-    }
-  });
+//       // Activate clicked tab
+//       this.parentElement.classList.add('active');
+      
+//       // Get target pane
+//       const targetSelector = this.getAttribute('href');
+//       const targetPane = document.querySelector(targetSelector);
 
-  // Optional: Add click listener to ensure active class updates correctly
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(nav => nav.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-});
-
+//       // Add 'active in show' classes to the selected pane
+//       if (targetPane) {
+//         targetPane.classList.add('active', 'in', 'show');
+//       }
+//     });
+//   });
+// });
 
 
 // const nav = document.querySelector(".fixedNav");
@@ -72,7 +74,6 @@ $(window).scroll(function () {
     $(".menu").removeClass('fixmenu');
   }
 });
-
 
 
 $(document).ready(function () {
@@ -171,3 +172,38 @@ function WidthChange(mq) {
     });
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tabs = document.querySelectorAll(".custom-tabs a");
+  const tabContents = document.querySelectorAll(".tab-pane");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Remove 'active' class from all tabs and tab content
+      tabs.forEach(t => t.parentElement.classList.remove("active"));
+      tabContents.forEach(tc => {
+        tc.classList.remove("in", "active", "show");
+      });
+
+      // Add 'active' to clicked tab
+      this.parentElement.classList.add("active");
+
+      // Get target content
+      const targetId = this.getAttribute("data-tab");
+      const targetContent = document.getElementById(targetId);
+
+      if (targetContent) {
+        targetContent.classList.add("in", "active", "show");
+      }
+    });
+  });
+});
+
+grecaptcha.ready(() => {
+  grecaptcha.execute("6Ldo2BErAAAAAIRIjKj6ds1XnwumkGKFvC8pWwms", { action: 'validate_captcha' }).then(token => {
+      //console.log(token);
+    document.querySelector('.recaptcha-token').value = token;
+  });
+});
