@@ -2,11 +2,13 @@
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden !important;
 }
 
 body {
-  margin: 0px
+  margin: 0px;
+  overflow-x: hidden !important;
 }
 
 article,
@@ -6539,7 +6541,10 @@ button {
   font-family: 'Poppins', sans-serif;
   z-index: 999999;
   transition: .33s all ease;
+}
 
+.fixphone a{
+  color: #fff !important;
 }
 
 .fixphone:hover {
@@ -6550,18 +6555,21 @@ button {
 #fixphone {
   position: fixed;
   bottom: 20px;
-  right: 10px;
+  left: 10px;
   z-index: 999;
   background-color: #b68157;
-  padding: 10px 30px;
+  padding: 10px 20px;
   border-radius: 8px 8px 0 0 !important;
   box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.25) !important;
   font-size: 18px;
-  color: #fff;
+  color: #fff !important;
   font-family: 'Poppins', sans-serif;
   z-index: 999999;
   transition: .33s all ease;
+}
 
+#fixphone a{
+  color: #fff !important;
 }
 
 #fixphone:hover {
@@ -7763,6 +7771,27 @@ footer h3 {
   }
 }
 
+@media (max-width: 990px) {
+  header.slider{
+    height: 900px !important;
+  }
+
+  .avi{
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  section.contact {
+    background-image: linear-gradient(180deg, #42474c 100%, #f7f7f7 100%);
+  }
+
+  .to-be-white{
+    color: #fff !important;
+  }
+}
+
 
 @media (max-width: 767px) {
   nav {
@@ -7770,7 +7799,7 @@ footer h3 {
   }
 
   section.contact {
-    background-image: linear-gradient(180deg, #42474c 50%, #f7f7f7 50%);
+    background-image: linear-gradient(180deg, #42474c 100%, #f7f7f7 100%);
   }
 
   section.bandeau4 p {
@@ -7820,7 +7849,7 @@ footer h3 {
 
   header.slider {
     padding: 0 0 70px;
-    height: auto;
+    height: auto !important;
   }
 
   header .middle h1 {
@@ -7930,4 +7959,9 @@ section.slide1 h1 {
 
 .grecaptcha-badge {
   bottom: 74px !important;
+}
+
+.header{
+  z-index: 100000000 !important;
+  position: relative;
 }

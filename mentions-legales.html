@@ -135,7 +135,7 @@
         
     </div>
     <div class="fixphone">
-      <a href="tel:01 60 92 52 40" title="01 60 92 52 40" class="button one phoneone"><i
+      <a href="tel:01 60 92 52 40" title="01 60 92 52 40" class="one phoneone"><i
           class="fas fa-phone"></i> &nbsp;01 60 92 52 40</a>
     </div>
 
@@ -207,6 +207,17 @@
 <script src="./assets/js/index.js"></script>
 <script src="./assets/js/formSubmit.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Ldo2BErAAAAAIRIjKj6ds1XnwumkGKFvC8pWwms"></script>
+
+<script>
+  grecaptcha.ready(() => {
+          grecaptcha.execute("6Ldo2BErAAAAAIRIjKj6ds1XnwumkGKFvC8pWwms", { action: 'validate_captcha' }).then(token => {
+              //console.log(token);
+            document.querySelector('.recaptcha-token').value = token;
+          });
+      });
+</script>
     <div id="fixphone">
       <a href="#" title="Up"><i class="fa fa-chevron-up"></i></a>
     </div>
